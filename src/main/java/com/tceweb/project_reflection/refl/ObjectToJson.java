@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class ObjectToJson {
 
@@ -23,9 +22,9 @@ public class ObjectToJson {
                 field -> {
                     field.setAccessible(true);
                     String key = field.getName();
-                    Objects value = null;
+                    Object value = null;
                     try {
-                       value = (Objects) field.get(object);
+                       value = field.get(object);
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     }
