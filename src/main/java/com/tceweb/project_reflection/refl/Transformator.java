@@ -25,6 +25,8 @@ public class Transformator {
         if (sourceField.getName().equals(targetField.getName())
                 && sourceField.getType().equals(targetField.getType())){
 
+            sourceField.setAccessible(true);
+            targetField.setAccessible(true);
         }
     }
 
