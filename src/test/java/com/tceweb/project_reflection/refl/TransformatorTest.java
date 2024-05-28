@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class TransformatorTest {
 
-    Pessoa pessoa = new Pessoa(1, "Joao", "1234");
+    Pessoa pessoa = new Pessoa(1, "João", "1234");
     Endereco endereco = new Endereco("10", 20);
 
     @Test
@@ -30,6 +30,16 @@ public class TransformatorTest {
        });
 
 
+    }
+
+    @Test
+    public void shouldTransformWhenSomeFieldIsNull() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        Pessoa pessoaSemCPF = new Pessoa("João");
+        Transformator transformator = new Transformator();
+        PessoaDTO pessoaDTOSemCPF = transformator.transform(pessoaSemCPF);
+
+        Assertions.assertEquals(pessoa.getNome(), pessoaDTOSemCPF.getNome());
+        Assertions.assertNull(pessoaDTOSemCPF.getCpf());
     }
 
 }
