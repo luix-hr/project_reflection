@@ -1,4 +1,4 @@
-package com.tceweb.project_reflection.refl;
+package com.tceweb.project_reflection.entities;
 
 public class Endereco {
 

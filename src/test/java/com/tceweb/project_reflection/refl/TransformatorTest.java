@@ -1,5 +1,8 @@
 package com.tceweb.project_reflection.refl;
 
+import com.tceweb.project_reflection.entities.Endereco;
+import com.tceweb.project_reflection.entities.Pessoa;
+import com.tceweb.project_reflection.entities.PessoaDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
