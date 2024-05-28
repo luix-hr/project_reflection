@@ -16,7 +16,14 @@ public class Transformator {
         Field[] targetFields = target.getDeclaredFields();
 
         Arrays.stream(sourceFields).forEach(sourceField -> Arrays.stream(targetFields)
-                .forEach(targetField -> validate(sourceField, targetField)));
+                .forEach(targetField -> {
+                    validate(sourceField, targetField);
+                    try {
+                        targetField.set(targetClass, sourceField.get(input));
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }));
 
         return targetClass;
     }
